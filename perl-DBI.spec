@@ -36,7 +36,7 @@
 
 Name:           %{?scl_prefix}perl-DBI
 Version:        1.642
-Release:        7%{?dist}
+Release:        8%{?dist}
 Summary:        A database access API for perl
 License:        GPL+ or Artistic
 URL:            http://dbi.perl.org/
@@ -161,7 +161,7 @@ done
 chmod 644 ex/*
 chmod 744 dbixs_rev.pl
 # Fix shell bangs
-for F in dbixs_rev.pl ex/corogofer.pl; do
+for F in dbixs_rev.pl ex/corogofer.pl ex/profile.pl; do
     %{?scl:scl enable %{scl} '}perl -MExtUtils::MakeMaker -e "ExtUtils::MM_Unix->fixin(q{%{?scl:'"}$F%{?scl:"'}})"%{?scl:'}
 done
 %if %{without perl_DBI_enables_coro}
@@ -215,6 +215,9 @@ find %{buildroot} -type f -name '*.bs' -empty -delete
 %endif
 
 %changelog
+* Wed Mar 25 2020 Petr Pisar <ppisar@redhat.com> - 1.642-8
+- Normalize shebangs in a documentation (bug #1817120)
+
 * Tue Jan 07 2020 Jitka Plesnikova <jplesnik@redhat.com> - 1.642-7
 - Re-rebuild of bootstrapped packages
 

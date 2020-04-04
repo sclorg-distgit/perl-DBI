@@ -36,7 +36,7 @@
 
 Name:           %{?scl_prefix}perl-DBI
 Version:        1.642
-Release:        6%{?dist}
+Release:        7%{?dist}
 Summary:        A database access API for perl
 License:        GPL+ or Artistic
 URL:            http://dbi.perl.org/
@@ -215,6 +215,9 @@ find %{buildroot} -type f -name '*.bs' -empty -delete
 %endif
 
 %changelog
+* Tue Jan 07 2020 Jitka Plesnikova <jplesnik@redhat.com> - 1.642-7
+- Re-rebuild of bootstrapped packages
+
 * Thu Jan 02 2020 Jitka Plesnikova <jplesnik@redhat.com> - 1.642-6
 - SCL
 
